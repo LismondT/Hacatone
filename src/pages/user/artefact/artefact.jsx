@@ -22,56 +22,6 @@ export default function ArtefactsPage() {
             <p className="artifact-desc">Древний артефакт, усиливающий энергию.</p>
             <p className="artifact-rarity epic">Редкость: Эпический</p>
           </div>
-
-          {/* Артефакт 2 */}
-          <div className="artifact-card">
-            <div className="artifact-image">IMG</div>
-            <h3 className="artifact-title">Амулет Хранителя</h3>
-            <p className="artifact-desc">Символ защиты и лидерства.</p>
-            <p className="artifact-rarity rare">Редкость: Редкий</p>
-          </div>
-          {/* Артефакт 2 */}
-          <div className="artifact-card">
-            <div className="artifact-image">IMG</div>
-            <h3 className="artifact-title">Амулет Хранителя</h3>
-            <p className="artifact-desc">Символ защиты и лидерства.</p>
-            <p className="artifact-rarity rare">Редкость: Редкий</p>
-          </div>
-          {/* Артефакт 2 */}
-          <div className="artifact-card">
-            <div className="artifact-image">IMG</div>
-            <h3 className="artifact-title">Амулет Хранителя</h3>
-            <p className="artifact-desc">Символ защиты и лидерства.</p>
-            <p className="artifact-rarity rare">Редкость: Редкий</p>
-          </div>
-          {/* Артефакт 2 */}
-          <div className="artifact-card">
-            <div className="artifact-image">IMG</div>
-            <h3 className="artifact-title">Амулет Хранителя</h3>
-            <p className="artifact-desc">Символ защиты и лидерства.</p>
-            <p className="artifact-rarity rare">Редкость: Редкий</p>
-          </div>
-          {/* Артефакт 2 */}
-          <div className="artifact-card">
-            <div className="artifact-image">IMG</div>
-            <h3 className="artifact-title">Амулет Хранителя</h3>
-            <p className="artifact-desc">Символ защиты и лидерства.</p>
-            <p className="artifact-rarity rare">Редкость: Редкий</p>
-          </div>
-          {/* Артефакт 2 */}
-          <div className="artifact-card">
-            <div className="artifact-image">IMG</div>
-            <h3 className="artifact-title">Амулет Хранителя</h3>
-            <p className="artifact-desc">Символ защиты и лидерства.</p>
-            <p className="artifact-rarity rare">Редкость: Редкий</p>
-          </div>
-          {/* Артефакт 2 */}
-          <div className="artifact-card">
-            <div className="artifact-image">IMG</div>
-            <h3 className="artifact-title">Амулет Хранителя</h3>
-            <p className="artifact-desc">Символ защиты и лидерства.</p>
-            <p className="artifact-rarity rare">Редкость: Редкий</p>
-          </div>
         </div>
       </div>
     </div>
