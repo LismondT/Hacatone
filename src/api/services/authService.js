@@ -67,9 +67,9 @@ const mockAuthService = {
   login: async (userLogin, userPassword) => {
     await new Promise(resolve => setTimeout(resolve, 50));
 
-    const user = await userService.getUsers.find(u => 
-      u.name === userLogin && u.password === userPassword
-    );
+    const user = await (await userService.getUsers()).find(
+			u => u.name === userLogin && u.password === userPassword
+		);
 
     if (!user) {
       throw new Error('Неверный логин или пароль');
