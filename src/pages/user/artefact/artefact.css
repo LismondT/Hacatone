@@ -1,0 +1,172 @@
+/* inventory.css */
+
+/* Общая страница */
+.inventory-page {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, #0a0d2e, #101640);
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 1rem;
+  display: flex;
+}
+
+/* Контейнер */
+.inventory-container {
+  padding-left: 4%;
+  height: 100%;
+  gap: 1rem ;
+}
+
+/* Заголовок */
+.inventory-header {
+  text-align: center;
+  align-self: center;
+}
+.inventory-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a5b4fc; /* Indigo-300 */
+}
+.inventory-subtitle {
+  font-size: 0.875rem;
+  color: #9ca3af; /* Gray-400 */
+  margin-top: 0.25rem;
+}
+
+/* Сетка артефактов */
+.artifacts-grid {
+  align-self: center;
+  background: #111a3a;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  display: grid;
+  width: 80%;
+  grid-template-columns: repeat(4, 40%);
+  gap: 13%;
+  /* overflow-y: auto; */
+}
+
+/* Карточка артефакта */
+.artifact-card {
+  background: linear-gradient(to bottom right, #111a3a, #1a245c);
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+  display: flex;
+
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.3s;
+  margin-bottom: 1%;
+}
+.artifact-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+}
+
+/* Заглушка под изображение */
+.artifact-image {
+  width: 6rem;
+  height: 6rem;
+  background: #374151; /* gray-700 */
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af; /* gray-400 */
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Текст артефакта */
+.artifact-title {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #a5b4fc; /* indigo-300 */
+  text-align: center;
+}
+.artifact-desc {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.artifact-rarity {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+}
+.artifact-rarity.epic {
+  color: #c084fc; /* purple-400 */
+}
+.artifact-rarity.rare {
+  color: #60a5fa; /* blue-400 */
+}
+.artifact-rarity.legendary {
+  color: #fbbf24; /* yellow-400 */
+}
+.artifact-rarity.common {
+  color: #9ca3af; /* gray-400 */
+}
+
+/* Панель HR */
+.hr-panel {
+  background: #111a3a;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+.hr-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #a5b4fc;
+  margin-bottom: 1rem;
+}
+
+/* Форма */
+.hr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.hr-form label {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+.hr-form input[type="text"],
+.hr-form textarea,
+.hr-form select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: #0c1330;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 0.875rem;
+}
+.hr-form input[type="file"] {
+  width: 100%;
+  font-size: 0.875rem;
+  color: #d1d5db;
+}
+.hr-form button {
+  width: 100%;
+  padding: 0.5rem;
+  background: #4f46e5;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.hr-form button:hover {
+  background: #4338ca;
+}
