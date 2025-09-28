@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LeftBar from './components/leftBar/leftBar.jsx';
 import ShopPage from './pages/user/shop/shop.jsx';
 import ArtefactsPage from './pages/user/artefact/artefact.jsx';
+import ProtectedRoute from './components/protectedRoute/ProtectedRoute.jsx';
 
 
 function App() {
@@ -13,9 +14,34 @@ function App() {
       <div className="App">
         <LeftBar />
         <Routes>
-          <Route path='/' element={<Cabinet />} />
-          <Route path='/cabinet' element={<Cabinet />} />
-          <Route path='/shop' element={<ShopPage />} />
+					<Route
+						path='/login'
+						element={
+              <ProtectedRoute requireAuth={false}>
+                <LoginForm />
+              </ProtectedRoute>
+            } />
+          <Route
+						path='/'
+						element={
+							<ProtectedRoute>
+								<Cabinet />
+							</ProtectedRoute>
+					} />
+          <Route
+						path='/cabinet'
+						element={
+							<ProtectedRoute>
+								<Cabinet />
+							</ProtectedRoute>
+						} />
+          <Route
+						path='/shop'
+						element={
+							<ProtectedRoute>
+								<ShopPage />
+							</ProtectedRoute>
+						} />
           <Route path='/artefacts' element={<ArtefactsPage />} />
         </Routes>
       </div>
