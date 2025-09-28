@@ -13,6 +13,15 @@
 	z-index: 1000;
 }
 
+.nav-icon.alabuga-logo{
+	font-size: 15px;
+	max-width: 90px;
+	height: 50px;
+	inline-size: 80%;
+	padding-left: 5%;
+	transition: transform 0.3s ease;
+}
+
 .nav-item{
 	position: relative;
 	text-decoration: none;

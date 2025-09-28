@@ -5,10 +5,11 @@ export default function LeftBar(){
     const location = useLocation();
 
     const barPages = [
-        {path: '/cabinet', icon: '/alabuga_icon_cabinet.png'},
-        {path: '/shop', icon: '/alabuga_icon_shop.png'},
-        {path: '/artefacts', icon: '/alabuga_icon_artefactPage.png'},
-        {path: '/missionsList', icon: '/alabuga_icon_missionsList.png'}
+        {path: '/cabinet', icon: '/alabuga_logo_variant_one.png', pageName: 'alabuga-logo'},
+        {path: '/cabinet', icon: '/alabuga_icon_cabinet.png', pageName: 'cabinet'},
+        {path: '/shop', icon: '/alabuga_icon_shop.png', pageName: 'shop'},
+        {path: '/artefacts', icon: '/alabuga_icon_artefactPage.png', pageName: 'artefacts'},
+        {path: '/missionsList', icon: '/alabuga_icon_missionsList.png', pageName: 'missionsList'}
     ]
 
     return(
@@ -20,7 +21,7 @@ export default function LeftBar(){
                         to = {page.path}
                         className={`nav-item ${location.pathname === page.path ? 'nav-item-active' : ''}`}
                     >
-                        <img className='nav-icon' src={page.icon}/>
+                        <img className={`nav-icon ${page.pageName}`} src={page.icon}/>
                     </Link>
                 )
             )
