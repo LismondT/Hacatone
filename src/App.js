@@ -6,6 +6,7 @@ import LeftBar from './components/leftBar/leftBar.jsx';
 import ShopPage from './pages/user/shop/shop.jsx';
 import ArtefactsPage from './pages/user/artefact/artefact.jsx';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute.jsx';
+import LoginForm from './pages/login/LoginPage.jsx';
 
 
 function App() {
