@@ -1,0 +1,22 @@
+.App{
+  display: flex;
+  flex-direction: row;
+}
+
+/* Фон со звездами */
+.stars {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  inset: 0;
+  background: url("https://avatanplus.com/files/resources/original/5c0ff23572eb91679e4a20df.png") repeat;
+  opacity: 0.2;
+  animation: pulse 4s infinite alternate;
+  z-index: 0;
+}
+
+@keyframes pulse {
+  from { opacity: 0.15; }
+  to { opacity: 0.3; }
+}
+

@@ -1,0 +1,27 @@
+.left-nav{
+	position: fixed;
+	height: 100%;
+    display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: left;
+  	background: linear-gradient(to bottom right, #111a3a, #1a245c);
+  	border-right: 1px solid rgba(99, 102, 241, 0.5);
+	box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+	opacity: 90%;
+	padding: 8px 0;
+	z-index: 1000;
+}
+
+.nav-item{
+	position: relative;
+	text-decoration: none;
+}
+
+.nav-icon {
+	font-size: 15px;
+	inline-size: 80%;
+	padding-left: 5%;
+	transition: transform 0.3s ease;
+}
+
