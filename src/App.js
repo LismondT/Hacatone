@@ -8,7 +8,7 @@ import ArtefactsPage from './pages/user/artefact/artefact.jsx';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute.jsx';
 import LoginForm from './pages/login/LoginPage.jsx';
 
-
+// ДОДОДОДОДО ПАСХАЛКА СКАЖИ 42 И ПОЛУЧИШЬ В ЛИЦО
 function App() {
   return (
     <Router>
