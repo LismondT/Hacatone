@@ -1,4 +1,4 @@
-
+import "./artefactCard.css";
 
 
 
@@ -12,8 +12,8 @@ export default function ArtefactCard({
 }){
   return(
     <div className="artifact-card">
-            <div className="artifact-image">
-              <img 
+            <div className="artifact-image-container">
+              <img className="artifact-image"
                 src={image} 
                 alt={name || "Изображение"} 
               />

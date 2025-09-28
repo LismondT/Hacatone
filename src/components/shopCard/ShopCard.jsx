@@ -1,4 +1,4 @@
-
+import './ShopCard.css';
 
 export default function ShopCard({
   id,

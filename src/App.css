@@ -16,13 +16,7 @@
   background-attachment: fixed;
   resize: none;
   opacity: 0.2;
-  animation: pulse 4s infinite alternate;
   z-index: 0;
   pointer-events: none;
-}
-
-@keyframes pulse {
-  from { opacity: 0.15; }
-  to { opacity: 0.3; }
 }
 

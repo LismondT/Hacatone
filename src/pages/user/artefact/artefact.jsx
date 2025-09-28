@@ -1,7 +1,18 @@
 import "./artefact.css";
 import ArtefactCard from "../../../components/artefactCard/artefactCard";
+import {artefactsService} from "../../../api/services/artefactsService";
+import { useEffect, useState } from "react";
 
 export default function ArtefactsPage() {
+    const [artefacts, setArtefacts] = useState([]);
+  
+    useEffect(() => {
+      artefactsService.getArtefacts()
+      .then(artefactData => {
+          setArtefacts(artefactData);
+        });
+    }, []);
+
   return (
     <div className="inventory-page">
         {/* фон космический */}
@@ -16,14 +27,15 @@ export default function ArtefactsPage() {
 
         {/* Список артефактов */}
         <div className="artifacts-grid">
-          {/* Артефакт 1 */}
-          <div className="artifact-card">
-            <div className="artifact-image">IMG</div>
-            <h3 className="artifact-title">Кристалл Звезды</h3>
-            <p className="artifact-desc">Древний артефакт, усиливающий энергию.</p>
-            <p className="artifact-rarity epic">Редкость: Эпический</p>
-          </div>
-        <ArtefactCard />
+          {artefacts.map((item) =>(
+              <ArtefactCard 
+                id = {item.id}
+                image = {item.image}
+                name = {item.name}
+                desc={item.description}
+                rare={item.rare.name}
+              />
+          ))}
         </div>
       </div>
     </div>

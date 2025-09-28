@@ -1,0 +1,69 @@
+/* Карточка артефакта */
+.artifact-card {
+  background: linear-gradient(to bottom right, #111a3a, #1a245c);
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.3s;
+  height: fit-content; /* высота по содержимому */
+}
+.artifact-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+}
+
+/* Заглушка под изображение */
+.artifact-image-container {
+  width: 90%;
+  height: 140px;
+  background: #374151;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.artifact-image{
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  height:inherit;
+}
+
+/* Текст артефакта */
+.artifact-title {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #a5b4fc;
+  text-align: center;
+}
+.artifact-desc {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.artifact-rarity {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+}
+.artifact-rarity.epic {
+  color: #c084fc;
+}
+.artifact-rarity.rare {
+  color: #60a5fa;
+}
+.artifact-rarity.legendary {
+  color: #fbbf24;
+}
+.artifact-rarity.common {
+  color: #9ca3af;
+}

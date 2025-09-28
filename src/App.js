@@ -7,6 +7,7 @@ import ShopPage from './pages/user/shop/shop.jsx';
 import ArtefactsPage from './pages/user/artefact/artefact.jsx';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute.jsx';
 import LoginForm from './pages/login/LoginPage.jsx';
+import MissionsListPage from './pages/user/missionsList/missionsList.jsx';
 
 // ДОДОДОДОДО ПАСХАЛКА СКАЖИ 42 И ПОЛУЧИШЬ В ЛИЦО
 function App() {
@@ -44,6 +45,7 @@ function App() {
 							</ProtectedRoute>
 						} />
           <Route path='/artefacts' element={<ArtefactsPage />} />
+					<Route path='/missionsList' element={<MissionsListPage />} />
         </Routes>
       </div>
     </Router>
