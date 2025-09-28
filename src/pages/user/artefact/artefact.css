@@ -44,9 +44,8 @@
   padding: 1.25rem;
   display: grid;
   width: 80%;
-  grid-template-columns: repeat(4, 40%);
+  
   gap: 13%;
-  /* overflow-y: auto; */
 }
 
 /* Карточка артефакта */
