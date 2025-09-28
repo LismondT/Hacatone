@@ -7,7 +7,8 @@ export default function LeftBar(){
     const barPages = [
         {path: '/cabinet', icon: '/alabuga_icon_cabinet.png'},
         {path: '/shop', icon: '/alabuga_icon_shop.png'},
-        {path: '/artefacts', icon:'/alabuga_icon_artefactPage.png'}
+        {path: '/artefacts', icon: '/alabuga_icon_artefactPage.png'},
+        {path: '/missionsList', icon: '/alabuga_icon_missionsList.png'}
     ]
 
     return(
