@@ -1,4 +1,5 @@
 import "./artefact.css";
+import ArtefactCard from "../../../components/artefactCard/artefactCard";
 
 export default function ArtefactsPage() {
   return (
@@ -22,6 +23,7 @@ export default function ArtefactsPage() {
             <p className="artifact-desc">Древний артефакт, усиливающий энергию.</p>
             <p className="artifact-rarity epic">Редкость: Эпический</p>
           </div>
+        <ArtefactCard />
         </div>
       </div>
     </div>
