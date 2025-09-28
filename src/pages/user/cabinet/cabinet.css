@@ -117,6 +117,7 @@
 
 /* Прогресс-бары */
 .progress-section {
+  text-align: left;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -161,6 +162,7 @@
   margin-bottom: 15px;
 }
 .skills-grid {
+  text-align: left;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;

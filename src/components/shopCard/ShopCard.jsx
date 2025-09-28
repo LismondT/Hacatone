@@ -11,8 +11,8 @@ export default function ShopCard({
 }){
   return(
     <div className="shop-card">
-            <div className="item-img">
-              <img 
+            <div className="item-img-container">
+              <img className="item-img"
                 src={image} 
                 alt={name || "Изображение"} 
               />  

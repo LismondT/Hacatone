@@ -93,7 +93,7 @@
   border-radius: 16px;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   overflow-y:auto;
 }
@@ -128,10 +128,10 @@
   margin-bottom: 8px;
 }
 
-/* Заглушка изображения */
-.item-img {
-  width: 96px;
-  height: 96px;
+/* изображение */
+.item-img-container {
+  width: 90%;
+  height: 140px;
   background: #374151;
   border-radius: 12px;
   display: flex;
@@ -140,6 +140,13 @@
   color: #9ca3af;
   font-size: 12px;
   margin-bottom: 12px;
+}
+
+.item-img{
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  height:inherit;
 }
 
 /* Кнопка */

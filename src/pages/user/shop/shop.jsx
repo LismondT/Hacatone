@@ -1,7 +1,18 @@
 import "./shop.css";
 import ShopCard from "../../../components/shopCard/ShopCard";
+import { productService } from "../../../api/services/productsService";
+import { useEffect, useState } from "react";
 
 export default function ShopPage() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const productsData = productService.getProducts()
+    .then(data => {
+        setProducts(data);
+      });
+  }, []);
+
   return (
     <div className="shop-container">
     <div className="stars"></div>
@@ -22,7 +33,16 @@ export default function ShopPage() {
         {/* Список товаров */}
         <div className="shop-grid">
           {/* Карточка товара */}
-          <ShopCard />
+          {products.map((item) =>(
+            <ShopCard 
+              id = {item.id}
+              image = {item.image}
+              name = {item.name}
+              desc={item.description}
+              price={item.price}
+              count={item.max_count_buy}
+            />
+          ))}
         </div>
       </div>
     </div>
