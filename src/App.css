@@ -10,9 +10,15 @@
   position: absolute;
   inset: 0;
   background: url("https://avatanplus.com/files/resources/original/5c0ff23572eb91679e4a20df.png") repeat;
+  /* background-size: 100% 100%; */
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed;
+  resize: none;
   opacity: 0.2;
   animation: pulse 4s infinite alternate;
   z-index: 0;
+  pointer-events: none;
 }
 
 @keyframes pulse {

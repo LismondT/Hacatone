@@ -7,9 +7,9 @@ export default function ShopPage() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const productsData = productService.getProducts()
-    .then(data => {
-        setProducts(data);
+    productService.getProducts()
+    .then(productsData => {
+        setProducts(productsData);
       });
   }, []);
 
