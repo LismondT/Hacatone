@@ -7,9 +7,10 @@ export default function MissionCard({
   desc,
   expirience,
   energy,
-  hasArtefactReward,
+  hasArtefactReward = false,
   artefactName,
-  skills
+  skills,
+  isOnline = true
 }){
   return(
     <div className="mission-card">
@@ -27,6 +28,13 @@ export default function MissionCard({
           ))}
         </p>
       </div>
+
+      {isOnline ? <div className="status mission-online">
+        <span>💻Онлайн</span>
+      </div>
+      : <div className="status mission-offline">
+        <span>💼Оффлайн</span>
+      </div>}
 
       {hasArtefactReward ? <div className="mission-bonus yellow">
         <span>🎁 Артефакт: {artefactName}</span>
