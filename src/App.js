@@ -7,7 +7,9 @@ import ShopPage from './pages/user/shop/shop.jsx';
 import ArtefactsPage from './pages/user/artefact/artefact.jsx';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute.jsx';
 import LoginForm from './pages/login/LoginPage.jsx';
-import CreateMission from './pages/hr/misson/shop.jsx'
+import CreateMission from './pages/hr/misson/shop.jsx';
+import MissionsListPage from './pages/user/missionsList/missionsList.jsx';
+import MissionPage from './pages/user/missionPage/missionPage.jsx';
 
 function App() {
   return (
@@ -44,6 +46,8 @@ function App() {
 							</ProtectedRoute>
 						} />
           <Route path='/artefacts' element={<ArtefactsPage />} />
+					<Route path='/missionsList' element={<MissionsListPage />} />
+					<Route path='/missionsList/:id' element={<MissionPage />} />
 		  <Route path='/hr/create-mission' element={<CreateMission />} />
         </Routes>
       </div>
