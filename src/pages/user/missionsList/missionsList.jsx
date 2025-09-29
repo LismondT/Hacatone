@@ -3,6 +3,8 @@ import "./missionsList.css";
 export default function MissionsListPage() {
   return (
     <div className="missions-page">
+      <div className="stars"></div>
+      
       <div className="missions-container">
         {/* Заголовок */}
         <h1 className="missions-title">🚀 Список миссий</h1>
