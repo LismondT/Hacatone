@@ -1,0 +1,121 @@
+.text-input-container {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.text-input-container.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.text-input-container.error .text-input-wrapper {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.text-input-label {
+  display: block;
+  font-weight: 600;
+  color: #e5e7eb;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+.text-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 2px solid #4b5563;
+  border-radius: 12px;
+  background: #1f2937;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.text-input-wrapper:hover {
+  border-color: #6b7280;
+}
+
+.text-input-wrapper.focused {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.text-input-wrapper.focused:hover {
+  border-color: #3b82f6;
+}
+
+.input-icon {
+  padding: 0 0 0 1rem;
+  color: #9ca3af;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.text-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #e5e7eb;
+  background: transparent;
+  font-family: inherit;
+}
+
+.text-input::placeholder {
+  color: #6b7280;
+}
+
+.text-input:disabled {
+  background: #374151;
+  color: #9ca3af;
+}
+
+/* Счетчик символов */
+.char-count {
+  padding: 0 1rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+/* Сообщение об ошибке */
+.error-message {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Варианты для разных типов */
+.text-input-container.success .text-input-wrapper {
+  border-color: #10b981;
+}
+
+.text-input-container.warning .text-input-wrapper {
+  border-color: #f59e0b;
+}
+
+/* Анимация при фокусе */
+@keyframes inputFocus {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.text-input-wrapper.focused {
+  animation: inputFocus 0.3s ease;
+}

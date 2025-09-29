@@ -1,0 +1,270 @@
+/* Контейнер */
+.select-container {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  position: relative;
+}
+
+.select-container.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.select-container.error .select-trigger {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.select-label {
+  display: block;
+  font-weight: 600;
+  color: #e5e7eb;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 2px;
+}
+.select-trigger {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;            /* горизонтальные отступы */
+  border: 2px solid #4b5563; /* как в InputText */
+  border-radius: 12px;       /* как в InputText */
+  background: #1f2937;
+  cursor: pointer;
+  height: 52px;              /* фикс как у InputText */
+  transition: all 0.3s ease;
+  color: #e5e7eb;
+  width: 100%;
+}
+
+.select-trigger:hover {
+  border-color: #6b7280;
+}
+
+.select-container.open .select-trigger {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); /* эффект InputText */
+  animation: inputFocus 0.3s ease;
+}
+
+/* Иконка */
+.select-icon {
+  margin-right: 0.75rem;
+  color: #9ca3af;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.select-value {
+  flex: 1;
+  font-size: 1rem;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.select-placeholder {
+  color: #6b7280;
+}
+
+/* Стрелка */
+.select-arrow {
+  color: #9ca3af;
+  transition: transform 0.2s;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+
+.select-arrow.open {
+  transform: rotate(180deg);
+  color: #3b82f6;
+}
+
+/* Dropdown */
+.select-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 100%;
+  background: #1f2937;
+  border: 2px solid #4b5563; /* как у InputText */
+  border-radius: 12px; /* как у InputText */
+  margin-top: 2px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow: hidden;
+  animation: dropdownAppear 0.15s ease;
+}
+
+@keyframes dropdownAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Поиск */
+.select-search {
+  padding: 0.75rem;
+  border-bottom: 1px solid #4b5563;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #4b5563;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  outline: none;
+  background: #111827;
+  color: #e5e7eb;
+}
+
+.search-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.search-input::placeholder {
+  color: #6b7280;
+}
+
+/* Опции */
+.select-options {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 0.25rem;
+}
+
+.select-option {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+  color: #e5e7eb;
+  transition: all 0.15s;
+}
+
+.select-option:hover:not(.disabled) {
+  background: #374151;
+}
+
+.select-option.selected {
+  background: #1e40af;
+  color: white;
+  font-weight: 500;
+}
+
+.select-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Внутри опций */
+.option-icon {
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.option-label {
+  flex: 1;
+  font-weight: 500;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.option-description {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.check-mark {
+  color: #10b981;
+  font-weight: bold;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+
+.no-options {
+  padding: 0.75rem;
+  text-align: center;
+  color: #9ca3af;
+  font-style: italic;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+/* Ошибка */
+.error-message {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Кастомный скроллбар */
+.select-options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.select-options::-webkit-scrollbar-track {
+  background: #374151;
+  border-radius: 3px;
+}
+
+.select-options::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 3px;
+}
+
+.select-options::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .select-dropdown {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 400px;
+    max-height: 60vh;
+  }
+  
+  .select-option {
+    white-space: normal;
+    min-width: auto;
+  }
+  
+  .option-label {
+    white-space: normal;
+  }
+}
+
+/* Анимация при фокусе (как у InputText) */
+@keyframes inputFocus {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
