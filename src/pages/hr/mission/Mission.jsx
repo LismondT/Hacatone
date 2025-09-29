@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Select from "../../../components/selectList/Select";
 import TextInput from "../../../components/textInput/TextInput";
-import "./shop.css";
+import "./Mission.css";
 
 export default function MissionsPage() {
   const [missions, setMissions] = useState([]);

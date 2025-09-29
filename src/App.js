@@ -7,9 +7,9 @@ import ShopPage from './pages/user/shop/shop.jsx';
 import ArtefactsPage from './pages/user/artefact/artefact.jsx';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute.jsx';
 import LoginForm from './pages/login/LoginPage.jsx';
-import CreateMission from './pages/hr/misson/shop.jsx';
 import MissionsListPage from './pages/user/missionsList/missionsList.jsx';
 import MissionPage from './pages/user/missionPage/missionPage.jsx';
+import CreateMission from './pages/hr/mission/Mission.jsx'
 
 function App() {
   return (
