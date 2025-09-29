@@ -1,4 +1,5 @@
 import './missionCard.css';
+import { Link } from "react-router-dom";
 
 export default function MissionCard({
   id,
@@ -31,7 +32,9 @@ export default function MissionCard({
         <span>🎁 Артефакт: {artefactName}</span>
       </div>
       : <div />}
-      <button className="mission-btn">Перейти к выполнению</button>
+      <Link to={`/missionsList/${id}`}>
+        <button className="mission-btn">Перейти к выполнению</button>
+      </Link>
     </div> 
   );
 }
