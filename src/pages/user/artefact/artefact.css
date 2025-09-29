@@ -16,13 +16,35 @@
 
 /* Контейнер */
 .inventory-container {
-  padding-left: 4%;
-  width: 90%;
+  padding-left: 6%;
+  width: 99%;
   flex: 1; /* занимает все доступное пространство */
   display: flex;
   flex-direction: column;
   gap: 1rem;
   box-sizing: border-box;
+}
+
+/* МЕДИА-ЗАПРОСЫ ДЛЯ АДАПТИВНОСТИ */
+/* Планшеты и маленькие ноутбуки */
+@media (max-width: 1024px) {
+  .inventory-container{
+    padding-left: 10%;
+  }
+}
+
+/* Большие телефоны */
+@media (max-width: 768px) {
+  .inventory-container{
+    padding-left: 14%;
+  }
+}
+
+/* Телефоны */
+@media (max-width: 480px) {
+  .inventory-container{
+    padding-left: 20%;
+  }
 }
 
 /* Заголовок */
