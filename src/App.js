@@ -8,7 +8,7 @@ import ArtefactsPage from './pages/user/artefact/artefact.jsx';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute.jsx';
 import LoginForm from './pages/login/LoginPage.jsx';
 import MissionsListPage from './pages/user/missionsList/missionsList.jsx';
-import MissionPage from './pages/user/missionPage/missionPage.jsx';
+import MissionPage from './pages/user/missionPage/MissionPage.jsx';
 import CreateMission from './pages/hr/mission/Mission.jsx'
 
 function App() {
