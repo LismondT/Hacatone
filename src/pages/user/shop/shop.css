@@ -12,7 +12,7 @@
 
 /* Контент */
 .shop-content {
-  padding-left: 3%;
+  padding-left: 6%;
   width: 100%;
   height: 100%;
   display: flex;
@@ -23,30 +23,31 @@
 /* Планшеты и маленькие ноутбуки */
 @media (max-width: 1024px) {
   .shop-content{
-    padding-left: 6%;
+    padding-left: 10%;
+  }
+  .shop-grid{
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 
 /* Большие телефоны */
 @media (max-width: 768px) {
   .shop-content{
-    padding-left: 6,5%;
+    padding-left: 14%;
+  };
+  .shop-grid{
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 /* Телефоны */
 @media (max-width: 480px) {
   .shop-content{
-    padding-left: 13%;
+    padding-left: 20%;
   }
-}
-
-/* Очень маленькие телефоны */
-@media (max-width: 320px) {
-  .shop-content{
-    padding-left: 25%;
+  .shop-grid{
+    grid-template-columns: repeat(1, 1fr) !important;
   }
-  
 }
 
 
@@ -93,68 +94,7 @@
   border-radius: 16px;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* адаптивные колонки */ 
   gap: 16px;
   overflow-y:auto;
-}
-
-/* Карточка товара */
-.shop-card {
-  background: #0c1330;
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.shop-card h3 {
-  font-size: 14px;
-  font-weight: bold;
-  color: #a5b4fc;
-  text-align: center;
-  margin-bottom: 4px;
-}
-.item-desc {
-  font-size: 12px;
-  color: #9ca3af;
-  text-align: center;
-  margin-bottom: 8px;
-}
-.item-price {
-  color: #34d399;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-/* Заглушка изображения */
-.item-img {
-  width: 96px;
-  height: 96px;
-  background: #374151;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #9ca3af;
-  font-size: 12px;
-  margin-bottom: 12px;
-}
-
-/* Кнопка */
-.buy-btn {
-  width: 100%;
-  padding: 8px;
-  border: none;
-  border-radius: 8px;
-  background: #4f46e5;
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.buy-btn:hover {
-  background: #4338ca;
 }

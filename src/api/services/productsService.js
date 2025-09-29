@@ -160,6 +160,21 @@ const mockProductsService = {
   }
 };
 
+// class productsRepository{
+
+//   async getProducts(){
+//     return mockProducts;
+//   };
+
+//   async getProductById(id){    
+//     const product = mockProducts.find(p => p.id === parseInt(id));
+//     if (!product) {
+//       throw new Error('Товар не найден');
+//     }
+    
+//     return product;
+//   };
+// }
 
 export const productService = mockProductsService;
 
