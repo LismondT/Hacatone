@@ -55,9 +55,9 @@ export default function MissionsPage() {
   };
 
   return (
-    <div className="shop-container">
-      <div className="shop-content">
-        <div className="shop-header">
+    <div className="mission-hr-container">
+      <div className="mission-hr-content">
+        <div className="mission-hr-header">
           <h1>🎯 Управление миссиями</h1>
           <p>Создавайте и назначайте HR-миссии</p>
         </div>
@@ -145,13 +145,13 @@ export default function MissionsPage() {
         </div>
 
         {/* Список миссий */}
-        <div className="shop-grid">
+        <div className="mission-hr-grid">
           {missions.map((mission, index) => (
-            <div key={index} className="shop-card">
+            <div key={index} className="mission-hr-card">
               <h3>{mission.name}</h3>
               <p className="item-desc">{mission.description}</p>
               
-              <div className="mission-meta">
+              <div className="mission-hr-meta">
                 {mission.rank && (
                   <p>📊 Ранг: {rankOptions.find(r => r.value === mission.rank)?.label}</p>
                 )}

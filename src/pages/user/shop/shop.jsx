@@ -1,4 +1,4 @@
-import "./shop.css";
+import "../shop/shop.css";
 import ShopCard from "../../../components/shopCard/ShopCard";
 import { productService } from "../../../api/services/productsService";
 import { useEffect, useState } from "react";
