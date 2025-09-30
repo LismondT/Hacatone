@@ -149,7 +149,7 @@ export default function MissionsPage() {
           {missions.map((mission, index) => (
             <div key={index} className="mission-hr-card">
               <h3>{mission.name}</h3>
-              <p className="item-desc">{mission.description}</p>
+              <p className="item-hr-desc">{mission.description}</p>
               
               <div className="mission-hr-meta">
                 {mission.rank && (
@@ -160,9 +160,9 @@ export default function MissionsPage() {
                 )}
               </div>
               
-              <p className="item-price">Опыт: {mission.exp} ⭐ | Мана: {mission.mana} ⚡</p>
-              <p className="item-desc">Компетенции: {mission.skills}</p>
-              {mission.artifact && <p className="item-desc">🎁 Артефакт: {mission.artifact}</p>}
+              <p className="item-hr-price">Опыт: {mission.exp} ⭐ | Мана: {mission.mana} ⚡</p>
+              <p className="item-hr-desc">Компетенции: {mission.skills}</p>
+              {mission.artifact && <p className="item-hr-desc">🎁 Артефакт: {mission.artifact}</p>}
             </div>
           ))}
         </div>

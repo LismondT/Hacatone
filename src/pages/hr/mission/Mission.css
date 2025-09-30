@@ -93,20 +93,20 @@
   text-align: center;
   margin-bottom: 6px;
 }
-.item-desc {
+.item-hr-desc {
   font-size: 13px;
   color: #9ca3af;
   text-align: center;
   margin-bottom: 8px;
 }
-.item-price {
+.item-hr-price {
   color: #34d399;
   font-weight: bold;
   margin-bottom: 8px;
 }
 
 /* Заглушка изображения */
-.item-img {
+.item-hr-img {
   width: 96px;
   height: 96px;
   background: #374151;

@@ -10,7 +10,8 @@ export default function MissionCard({
   hasArtefactReward = false,
   artefactName,
   skills,
-  isOnline = true
+  isOnline = true,
+  needRank
 }){
   return(
     <div className="mission-card">
@@ -27,6 +28,7 @@ export default function MissionCard({
             </span>
           ))}
         </p>
+        <p className="mission-rank">📊 Доступно с ранга: {needRank}</p>
       </div>
 
       {isOnline ? <div className="status mission-online">
