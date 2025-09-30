@@ -1,6 +1,7 @@
 import "./cabinet.css";
 
 export default function Cabinet() {
+
   return (
     <div className="profile-page">
       {/* Космический фон */}
