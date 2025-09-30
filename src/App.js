@@ -26,7 +26,6 @@ function App() {
               <ProtectedRoute requireAuth={false}>
                 <LoginForm />
               </ProtectedRoute>
-<<<<<<< HEAD
         	} />
         <Route
 			path='/'
@@ -53,35 +52,6 @@ function App() {
 		<Route path='/missionsList' element={<MissionsListPage />} />
 		<Route path='/missionsList/:id' element={<MissionPage />} />
 		<Route path='/hr/create-mission' element={<CreateMission />} />
-=======
-            } />
-          <Route
-						path='/'
-						element={
-							<ProtectedRoute>
-								<OnboardingPage />
-							</ProtectedRoute>
-					} />
-          <Route
-						path='/cabinet'
-						element={
-							<ProtectedRoute>
-								<Cabinet />
-							</ProtectedRoute>
-						} />
-          <Route
-						path='/shop'
-						element={
-							<ProtectedRoute>
-								<ShopPage />
-							</ProtectedRoute>
-						} />
-          <Route path='/artefacts' element={<ArtefactsPage />} />
-					<Route path='/missionsList' element={<MissionsListPage />} />
-					<Route path='/missionsList/:id' element={<MissionPage />} />
-					<Route path='/onboarding' element={<OnboardingPage />} />
-		  <Route path='/hr/create-mission' element={<CreateMission />} />
->>>>>>> a1c84ce4e4d9adb4d3b4cf1cad10e369b8b9e7d9
         </Routes>
       </div>
     </Router>
