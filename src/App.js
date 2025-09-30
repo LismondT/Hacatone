@@ -29,7 +29,7 @@ function App() {
 						path='/'
 						element={
 							<ProtectedRoute>
-								<Cabinet />
+								<OnboardingPage />
 							</ProtectedRoute>
 					} />
           <Route
