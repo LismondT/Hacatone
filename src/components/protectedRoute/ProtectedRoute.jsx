@@ -18,10 +18,10 @@ const ProtectedRoute = ({ children, requireAuth = true }) => {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  // Если пользователь авторизован, но пытается зайти на login/register
-  if (!requireAuth && isAuthenticated) {
-    return <Navigate to="/" replace />;
-  }
+  // // Если пользователь авторизован, но пытается зайти на login/register
+  // if (!requireAuth && isAuthenticated) {
+  //   return <Navigate to="/" replace />;
+  // }
 
   return children;
 };
