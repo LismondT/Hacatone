@@ -1,0 +1,92 @@
+.onboarding-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #05071d, #0a0d2e);
+  color: white;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.onboarding-header {
+  text-align: center;
+}
+.onboarding-header h1 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #a5b4fc;
+}
+.onboarding-header p {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-top: 6px;
+}
+
+.onboarding-progress {
+  text-align: center;
+}
+.progress-bar {
+  height: 8px;
+  background: #111a3a;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #4f46e5, #9333ea);
+  transition: width 0.4s ease-in-out;
+}
+
+.onboarding-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.onboarding-card {
+  background: #0c1330;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.onboarding-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+.onboarding-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #c7d2fe;
+  margin-bottom: 8px;
+}
+.onboarding-card p {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.onboarding-lore {
+  text-align: center;
+  font-size: 13px;
+  color: #f9fafb;
+  font-style: italic;
+}
+
+.onboarding-finish {
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #4f46e5, #7c3aed);
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.onboarding-finish:hover {
+  background: linear-gradient(to right, #4338ca, #6d28d9);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
+}
