@@ -6,7 +6,7 @@ const AuthContext = createContext();
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('useAuth must be used within AuthProvider');
+    throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;
 };
@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Проверяем авторизацию при загрузке приложения
+  // Проверка авторизации при загрузке приложения
   useEffect(() => {
     checkAuth();
   }, []);
@@ -28,22 +28,23 @@ export const AuthProvider = ({ children }) => {
       setUser(userData);
       setError(null);
     } catch (err) {
-      setError(err.message);
       setUser(null);
+      setError(err.message);
     } finally {
       setLoading(false);
     }
   };
 
-  const login = async (login, password) => {
+  const login = async () => {
     try {
       setLoading(true);
       setError(null);
-      const result = await authService.login(login, password);
+      const result = await authService.login();
       setUser(result.user);
       return result;
     } catch (err) {
       setError(err.message);
+      setUser(null);
       throw err;
     } finally {
       setLoading(false);
@@ -63,13 +64,23 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const refreshProfile = async () => {
+    try {
+      const profile = await authService.getProfile();
+      setUser(profile);
+      localStorage.setItem('user_data', JSON.stringify(profile));
+    } catch (err) {
+      console.error('Failed to refresh profile:', err);
+    }
+  };
+
   const value = {
     user,
     loading,
     error,
     login,
     logout,
-    checkAuth,
+    refreshProfile,
     isAuthenticated: !!user
   };
 
@@ -79,3 +90,5 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+export default AuthContext;
