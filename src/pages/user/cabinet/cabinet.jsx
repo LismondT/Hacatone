@@ -1,4 +1,7 @@
 import "./cabinet.css";
+import { useAuth } from "../../../components/context/AuthContext";
+import { useState, useEffect } from "react";
+import {userService} from "../../../api/services/userService";
 
 export default function Cabinet() {
 	const { user, refreshProfile } = useAuth();
@@ -56,6 +59,9 @@ export default function Cabinet() {
     );
   }
 	
+  const xpProgress = calculateLevelProgress(userData.exp);
+  const energyProgress = calculateEnergyProgress(userData.energy);
+
   return (
     <div className="profile-page">
       {/* Космический фон */}
@@ -65,28 +71,28 @@ export default function Cabinet() {
         {/* Профиль */}
         <div className="profile-card fade-in-up">
           <div className="avatar-wrapper">
-            <img src="/avatar.png" alt="Аватар" className="avatar" />
+            <img src={userData.image} alt="Аватар" className="avatar" />
             <div className="status"></div>
           </div>
-          <h2 className="username">Иван Петров</h2>
-          <p className="rank">Ранг: ⭐ Разведчик</p>
+          <h2 className="username">{userData.firstName} {userData.lastName} {userData.surname}</h2>
+          <p className="rank">Ранг: ⭐ {userData.rankName}</p>
 
           {/* Прогресс бары */}
           <div className="progress-section">
             <div className="progress-block">
               <p className="label">Опыт</p>
               <div className="progress-bar">
-                <div className="progress-fill xp" style={{ width: "60%" }}></div>
+                <div className="progress-fill xp" style={{ width: `${xpProgress.progress}%` }}></div>
               </div>
-              <p className="small">1200 / 2000 XP</p>
+              <p className="small">{xpProgress.current} / {xpProgress.max} XP</p>
             </div>
 
             <div className="progress-block">
               <p className="label">Энергия</p>
               <div className="progress-bar">
-                <div className="progress-fill energy" style={{ width: "80%" }}></div>
+                <div className="progress-fill energy" style={{ width: `${energyProgress.progress}%` }}></div>
               </div>
-              <p className="small">80 / 100 ⚡</p>
+              <p className="small">{energyProgress.current} / {energyProgress.max} ⚡</p>
             </div>
           </div>
         </div>
