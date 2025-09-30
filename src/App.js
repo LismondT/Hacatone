@@ -9,7 +9,8 @@ import ProtectedRoute from './components/protectedRoute/ProtectedRoute.jsx';
 import LoginForm from './pages/login/LoginPage.jsx';
 import MissionsListPage from './pages/user/missionsList/missionsList.jsx';
 import MissionPage from './pages/user/missionPage/MissionPage.jsx';
-import CreateMission from './pages/hr/mission/Mission.jsx'
+import CreateMission from './pages/hr/mission/Mission.jsx';
+import OnboardingPage from './pages/user/onboarding/onboarding.jsx';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path='/artefacts' element={<ArtefactsPage />} />
 					<Route path='/missionsList' element={<MissionsListPage />} />
 					<Route path='/missionsList/:id' element={<MissionPage />} />
+					<Route path='/onboarding' element={<OnboardingPage />} />
 		  <Route path='/hr/create-mission' element={<CreateMission />} />
         </Routes>
       </div>

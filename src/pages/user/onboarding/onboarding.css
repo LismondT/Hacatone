@@ -1,5 +1,6 @@
-.onboarding-page {
+.onboarding-guide {
   min-height: 100vh;
+  width: 100%;
   background: linear-gradient(to bottom, #05071d, #0a0d2e);
   color: white;
   padding: 20px;
@@ -7,86 +8,120 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding-left: 6%;
 }
 
-.onboarding-header {
-  text-align: center;
+@media (max-width: 1024px) {
+  .onboarding-guide{
+    padding-left: 10%;
+  }
 }
-.onboarding-header h1 {
-  font-size: 26px;
+
+/* Большие телефоны */
+@media (max-width: 768px) {
+  .onboarding-guide{
+    padding-left: 17%;
+  }
+  .guide-grid{
+    grid-template-columns: repeat(1, 1fr) !important; /* адаптивные колонки */ 
+  }
+}
+
+/* Телефоны */
+@media (max-width: 500px) {
+  .onboarding-guide{
+    padding-left: 25%;
+    width: auto;
+  }
+}
+
+/* Очень маленькие телефоны */
+@media (max-width: 320px) {
+  .onboarding-guide{
+    padding-left: 25%;
+  }
+  
+}
+
+.guide-title {
+  font-size: 28px;
   font-weight: bold;
-  color: #a5b4fc;
-}
-.onboarding-header p {
-  font-size: 14px;
-  color: #9ca3af;
-  margin-top: 6px;
-}
-
-.onboarding-progress {
   text-align: center;
-}
-.progress-bar {
-  height: 8px;
-  background: #111a3a;
-  border-radius: 6px;
-  overflow: hidden;
+  color: #a5b4fc;
   margin-bottom: 6px;
 }
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(to right, #4f46e5, #9333ea);
-  transition: width 0.4s ease-in-out;
+
+.guide-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 20px;
 }
 
-.onboarding-grid {
+.guide-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 20px;
 }
-.onboarding-card {
+
+.guide-card {
   background: #0c1330;
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  border-radius: 16px;
-  padding: 16px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.onboarding-card:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+
+.guide-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.7);
 }
-.onboarding-card h2 {
-  font-size: 16px;
+
+.guide-card h2 {
+  font-size: 18px;
   font-weight: bold;
   color: #c7d2fe;
-  margin-bottom: 8px;
-}
-.onboarding-card p {
-  font-size: 13px;
-  color: #9ca3af;
+  margin-bottom: 12px;
 }
 
-.onboarding-lore {
-  text-align: center;
+.guide-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
   font-size: 13px;
-  color: #f9fafb;
-  font-style: italic;
+  color: #d1d5db;
 }
 
-.onboarding-finish {
-  padding: 12px;
+.guide-card ul li {
+  margin-bottom: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+
+.guide-card ul li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: #7c3aed;
+}
+
+.guide-btn {
+  padding: 10px;
   border-radius: 10px;
   background: linear-gradient(to right, #4f46e5, #7c3aed);
-  color: white;
+  font-size: 14px;
   font-weight: bold;
+  color: white;
   border: none;
   cursor: pointer;
-  margin-top: auto;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition: background 0.25s, box-shadow 0.25s;
 }
-.onboarding-finish:hover {
+
+.guide-btn:hover {
   background: linear-gradient(to right, #4338ca, #6d28d9);
   box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
 }
