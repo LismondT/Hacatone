@@ -72,7 +72,7 @@ export default function Cabinet() {
         <div className="profile-card fade-in-up">
           <div className="avatar-wrapper">
             <img src={userData.image} alt="Аватар" className="avatar" />
-            <div className="status"></div>
+            <div className="profile-status"></div>
           </div>
           <h2 className="username">{userData.firstName} {userData.lastName} {userData.surname}</h2>
           <p className="rank">Ранг: ⭐ {userData.rankName}</p>

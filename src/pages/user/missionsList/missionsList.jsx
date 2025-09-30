@@ -35,7 +35,7 @@ export default function MissionsListPage() {
             artefactName = {mission.artefactName}
             skills = {mission.skills}
             isOnline = {mission.isOnline}
-            needRank = {missions.needRank}
+            needRank = {mission.needRank}
             />
           ))}
         </div>

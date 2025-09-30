@@ -1,4 +1,4 @@
-.mission-page {
+.missionPage-page {
   min-height: 100vh;
   width: 100%;
   background: linear-gradient(to bottom, #0a0d2e, #101640);
@@ -10,7 +10,7 @@
   font-family: Arial, sans-serif;
 }
 
-.mission-container {
+.missionPage-container {
   width: 100%;
   max-width: 900px;
   display: flex;
@@ -18,23 +18,23 @@
   gap: 20px;
 }
 
-.mission-header {
+.missionPage-header {
   text-align: center;
 }
 
-.mission-header h1 {
+.missionPage-header h1 {
   font-size: 28px;
   font-weight: bold;
   color: #93c5fd; /* светло-синий */
   margin-bottom: 5px;
 }
 
-.mission-header p {
+.missionPage-header p {
   color: #9ca3af; /* серый */
   font-size: 14px;
 }
 
-.mission-branch {
+.missionPage-branch {
   background: rgba(17, 26, 58, 0.9);
   border: 1px solid rgba(99, 102, 241, 0.5);
   border-radius: 16px;
@@ -42,13 +42,13 @@
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
 }
 
-.mission-branch h2 {
+.missionPage-branch h2 {
   font-size: 18px;
   color: #a5b4fc;
   margin-bottom: 15px;
 }
 
-.mission-card {
+.missionPage-card {
   background: #0c1330;
   border: 1px solid rgba(99, 102, 241, 0.3);
   border-radius: 14px;
@@ -59,25 +59,25 @@
   list-style: none;
 }
 
-.mission-card:hover {
+.missionPage-card:hover {
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 8px 18px rgba(99, 102, 241, 0.5);
 }
 
-.mission-card h3 {
+.missionPage-card h3 {
   font-size: 16px;
   font-weight: bold;
   color: #c7d2fe;
   margin-bottom: 8px;
 }
 
-.mission-card p {
+.missionPage-card p {
   font-size: 13px;
   color: #9ca3af;
   margin-bottom: 10px;
 }
 
-.mission-info {
+.missionPage-info {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -86,7 +86,7 @@
   margin-bottom: 10px;
 }
 
-.mission-reward {
+.missionPage-reward {
   font-size: 12px;
   font-weight: bold;
   background: linear-gradient(to right, #facc15, #f87171);
@@ -97,7 +97,7 @@
   display: inline-block;
 }
 
-.mission-btn {
+.missionPage-btn {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
@@ -110,37 +110,37 @@
   transition: background 0.2s, box-shadow 0.2s;
 }
 
-.mission-btn:hover {
+.missionPage-btn:hover {
   background: linear-gradient(to right, #4338ca, #6d28d9);
   box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
 }
 
-.mission-detail {
+.missionPage-detail {
   background: rgba(17, 26, 58, 0.9);
   border: 1px solid rgba(99, 102, 241, 0.5);
   border-radius: 16px;
   padding: 20px;
 }
 
-.mission-detail h2 {
+.missionPage-detail h2 {
   font-size: 18px;
   font-weight: bold;
   color: #a5b4fc;
   margin-bottom: 12px;
 }
 
-.mission-detail form {
+.missionPage-detail form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.mission-detail label {
+.missionPage-detail label {
   font-size: 12px;
   color: #d1d5db;
 }
 
-.mission-detail input[type="file"] {
+.missionPage-detail input[type="file"] {
   font-size: 12px;
   color: #d1d5db;
   background: #0c1330;
