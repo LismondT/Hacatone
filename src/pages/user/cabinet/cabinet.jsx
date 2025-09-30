@@ -1,6 +1,61 @@
 import "./cabinet.css";
 
 export default function Cabinet() {
+	const { user, refreshProfile } = useAuth();
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('week');
+
+  useEffect(() => {
+    loadUserData();
+  }, []);
+
+  const loadUserData = async () => {
+    try {
+      setLoading(true);
+      await refreshProfile();
+      const data = await userService.getCurrentUser();
+      setUserData(data);
+    } catch (error) {
+      console.error('Error loading user data:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Функции для расчета прогресса (можно вынести в утилиты)
+  const calculateLevelProgress = (exp) => {
+    const currentLevelExp = 2000; // Базовое значение для уровня
+    const progress = Math.min((exp / currentLevelExp) * 100, 100);
+    return {
+      progress: Math.round(progress),
+      current: exp,
+      max: currentLevelExp
+    };
+  };
+
+  const calculateEnergyProgress = (energy) => {
+    const maxEnergy = 100;
+    const progress = Math.min((energy / maxEnergy) * 100, 100);
+    return {
+      progress: Math.round(progress),
+      current: energy,
+      max: maxEnergy
+    };
+  };
+
+  if (loading) {
+    return (
+      <div className="profile-page">
+        <div className="stars"></div>
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <p>Загрузка данных космонавта...</p>
+        </div>
+      </div>
+    );
+  }
+	
   return (
     <div className="profile-page">
       {/* Космический фон */}
