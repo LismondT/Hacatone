@@ -81,7 +81,7 @@ export default function MissionsPage() {
             icon="📝"
           />
 
-          <div style={{ gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+          <div style={{ gridTemplateColumns: "1fr 1fr" }}>
             <Select
               label="Требуемый ранг"
               value={form.rank}

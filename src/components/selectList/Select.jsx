@@ -118,18 +118,6 @@ const Select = ({
             className="select-dropdown"
             ref={dropdownRef}
           >
-            {searchable && (
-              <div className="select-search">
-                <input
-                  type="text"
-                  placeholder="Поиск..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="search-input"
-                  autoFocus
-                />
-              </div>
-            )}
             
             <div className="select-options">
               {filteredOptions.length === 0 ? (

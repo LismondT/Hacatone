@@ -1,5 +1,5 @@
 import './leftBar.css'
-import { Link, UNSAFE_NavigationContext, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function LeftBar(){
     const location = useLocation();

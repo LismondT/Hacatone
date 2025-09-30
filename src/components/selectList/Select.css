@@ -27,15 +27,17 @@
   color: #ef4444;
   margin-left: 2px;
 }
+
+/* Триггер (кнопка выбора) */
 .select-trigger {
   display: flex;
   align-items: center;
-  padding: 0 1rem;            /* горизонтальные отступы */
-  border: 2px solid #4b5563; /* как в InputText */
-  border-radius: 12px;       /* как в InputText */
+  padding: 0 1rem;
+  border: 2px solid #4b5563;
+  border-radius: 12px;
   background: #1f2937;
   cursor: pointer;
-  height: 52px;              /* фикс как у InputText */
+  height: 52px; /* как у InputText */
   transition: all 0.3s ease;
   color: #e5e7eb;
   width: 100%;
@@ -47,7 +49,7 @@
 
 .select-container.open .select-trigger {
   border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); /* эффект InputText */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
   animation: inputFocus 0.3s ease;
 }
 
@@ -93,8 +95,8 @@
   left: 0;
   min-width: 100%;
   background: #1f2937;
-  border: 2px solid #4b5563; /* как у InputText */
-  border-radius: 12px; /* как у InputText */
+  border: 2px solid #4b5563;
+  border-radius: 12px;
   margin-top: 2px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   z-index: 1000;
@@ -111,32 +113,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Поиск */
-.select-search {
-  padding: 0.75rem;
-  border-bottom: 1px solid #4b5563;
-}
-
-.search-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 2px solid #4b5563;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  outline: none;
-  background: #111827;
-  color: #e5e7eb;
-}
-
-.search-input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-}
-
-.search-input::placeholder {
-  color: #6b7280;
 }
 
 /* Опции */
@@ -240,7 +216,7 @@
   background: #9ca3af;
 }
 
-/* Адаптивность */
+/* 📱 Адаптивность */
 @media (max-width: 768px) {
   .select-dropdown {
     position: fixed;
@@ -251,12 +227,18 @@
     max-width: 400px;
     max-height: 60vh;
   }
-  
-  .select-option {
-    white-space: normal;
-    min-width: auto;
+
+  .select-trigger {
+    height: 56px; /* чуть выше для пальцев */
+    font-size: 1.1rem;
   }
-  
+
+  .select-option {
+    font-size: 1rem;
+    padding: 1rem;
+    white-space: normal;
+  }
+
   .option-label {
     white-space: normal;
   }
