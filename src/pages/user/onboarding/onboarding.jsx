@@ -1,4 +1,5 @@
 import "./onboarding.css";
+import { Link } from "react-router-dom";
 
 export default function OnboardingPage() {
   return (
@@ -18,7 +19,9 @@ export default function OnboardingPage() {
             <li>Навыки и компетенции</li>
             <li>Бортовой журнал и рейтинги</li>
           </ul>
-          <button className="guide-btn">Перейти в Профиль</button>
+          <Link to={`/cabinet`}>
+            <button className="guide-btn">Перейти в Профиль</button>
+          </Link>
         </div>
 
         {/* Магазин */}
@@ -30,7 +33,9 @@ export default function OnboardingPage() {
             <li>Редкие артефакты</li>
             <li>Обновляемый ассортимент</li>
           </ul>
-          <button className="guide-btn">Перейти в Магазин</button>
+          <Link to={`/shop`}>
+            <button className="guide-btn">Перейти в Магазин</button>
+          </Link>
         </div>
 
         {/* Артефакты */}
@@ -42,7 +47,9 @@ export default function OnboardingPage() {
             <li>Коллекция в инвентаре</li>
             <li>Создание новых HR</li>
           </ul>
-          <button className="guide-btn">Перейти в Артефакты</button>
+          <Link to={`/artefacts`}>
+            <button className="guide-btn">Перейти в Артефакты</button>
+          </Link>
         </div>
 
         {/* Миссии */}
@@ -54,7 +61,9 @@ export default function OnboardingPage() {
             <li>Прокачка компетенций</li>
             <li>Ветки развития</li>
           </ul>
-          <button className="guide-btn">Перейти в Миссии</button>
+          <Link to={`/missionsList`}>
+            <button className="guide-btn">Перейти в Миссии</button>
+          </Link>
         </div>
       </div>
     </div>
