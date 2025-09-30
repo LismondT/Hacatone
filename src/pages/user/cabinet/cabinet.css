@@ -30,19 +30,28 @@
   .profile-container{
     padding-left: 6%;
   }
+  .avatar-wrapper{
+    width: 15% !important;
+  }
 }
 
 /* Большие телефоны */
 @media (max-width: 768px) {
   .profile-container{
-    padding-left: 8%;
+    padding-left: 12%;
+  }
+  .avatar-wrapper{
+    width: 20% !important;
   }
 }
 
 /* Телефоны */
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .profile-container{
-    padding-left: 12%;
+    padding-left: 17%;
+  }
+  .avatar-wrapper{
+    width: 30% !important;
   }
 }
 
@@ -50,6 +59,9 @@
 @media (max-width: 320px) {
   .profile-container{
     padding-left: 25%;
+  }
+  .avatar-wrapper{
+    width: 50% !important;
   }
   
 }

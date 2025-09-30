@@ -13,6 +13,34 @@
 	z-index: 1000;
 }
 
+@media (max-width: 1024px) {
+  .left-nav{
+    max-width: 12%;
+  }
+}
+
+/* Большие телефоны */
+@media (max-width: 768px) {
+  .left-nav{
+    max-width: 10%;
+  }
+}
+
+/* Телефоны */
+@media (max-width: 500px) {
+  .left-nav{
+    max-width: 17%;
+  }
+}
+
+/* Очень маленькие телефоны */
+@media (max-width: 320px) {
+  .left-nav{
+    max-width: 20%;
+  }
+  
+}
+
 .nav-icon.alabuga-logo{
 	font-size: 15px;
 	max-width: 90px;

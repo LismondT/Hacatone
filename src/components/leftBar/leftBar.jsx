@@ -9,7 +9,8 @@ export default function LeftBar(){
         {path: '/cabinet', icon: '/alabuga_icon_cabinet.png', pageName: 'cabinet'},
         {path: '/shop', icon: '/alabuga_icon_shop.png', pageName: 'shop'},
         {path: '/artefacts', icon: '/alabuga_icon_artefactPage.png', pageName: 'artefacts'},
-        {path: '/missionsList', icon: '/alabuga_icon_missionsList.png', pageName: 'missionsList'}
+        {path: '/missionsList', icon: '/alabuga_icon_missionsList.png', pageName: 'missionsList'},
+        {path: '/onboarding', icon: '/alabuga_icon_onboarding.png', pageName: 'onboarding'}
     ]
 
     return(
