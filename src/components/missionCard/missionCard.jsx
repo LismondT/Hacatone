@@ -1,7 +1,7 @@
 import './missionCard.css';
 import { Link } from "react-router-dom";
 
-export default function MissionCard({
+function MissionCard({
   id,
   title,
   desc,
@@ -24,7 +24,7 @@ export default function MissionCard({
         <p className="mission-competetions">📈 Компетенции: 
           {skills.map((skill, index) => (
             <span key={index} className="skill-tag">
-              {skill} +{skill.skill_exp};
+              {skill.name} +{skill.skill_exp};
             </span>
           ))}
         </p>
@@ -48,3 +48,5 @@ export default function MissionCard({
     </div> 
   );
 }
+
+export default MissionCard;
