@@ -22,6 +22,7 @@ function Layout() {
   return (
     <div className="App">
       {!shouldHideLeftBar && <LeftBar />}
+      {/* <HrMenu/> */}
       <Routes>
         <Route
           path="/login"

@@ -9,6 +9,7 @@ const realAuthService = {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
       });
 
       if (!response.ok) {
@@ -24,7 +25,8 @@ const realAuthService = {
       const userResponse = await fetch(`${API_BASE_URL}/auth/profile`, {
         headers: {
           'Authorization': `Bearer ${data.accessToken}`
-        }
+        },
+        credentials: 'include',
       });
 
       if (userResponse.ok) {
@@ -74,7 +76,8 @@ const realAuthService = {
       const response = await fetch(`${API_BASE_URL}/auth/profile`, {
         headers: {
           'Authorization': `Bearer ${token}`
-        }
+        },
+        credentials: 'include',
       });
 
       if (response.ok) {
@@ -104,7 +107,8 @@ const realAuthService = {
     const response = await fetch(`${API_BASE_URL}/auth/profile`, {
       headers: {
         'Authorization': `Bearer ${token}`
-      }
+      },
+      credentials: 'include',
     });
 
     if (!response.ok) {

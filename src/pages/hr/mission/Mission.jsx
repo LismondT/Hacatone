@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Select from "../../../components/selectList/Select";
 import TextInput from "../../../components/textInput/TextInput";
+import { missionsService } from "../../../api/services/missionsService";
 import "./Mission.css";
 
 export default function MissionsPage() {
@@ -15,6 +16,32 @@ export default function MissionsPage() {
     skills: "",
     artifact: "",
   });
+
+  // загрузка существующих миссий из сервиса
+  useEffect(() => {
+    const loadMissions = async () => {
+      try {
+        const list = await missionsService.getMissions();
+        const mapped = list.map((m) => ({
+          id: m.id,
+          name: m.title || m.name || "",
+          description: m.description || "",
+          exp: m.expirience ?? "",
+          mana: m.energy ?? "",
+          rank: m.needRank || "",
+          branch: "",
+          skills: Array.isArray(m.skills)
+            ? m.skills.map(s => `${s.name}${s.skill_exp ? ` +${s.skill_exp}` : ""}`).join(", ")
+            : (m.skills || ""),
+          artifact: m.artefactName || "",
+        }));
+        setMissions(mapped);
+      } catch (e) {
+        // no-op для моков
+      }
+    };
+    loadMissions();
+  }, []);
 
   // Опции для рангов
   const rankOptions = [
@@ -38,20 +65,59 @@ export default function MissionsPage() {
     setForm({ ...form, [field]: value });
   };
 
-  const addMission = () => {
-    if (!form.name || !form.description) return;
-    
-    setMissions([...missions, { ...form, id: Date.now() }]);
-    setForm({
-      name: "",
-      description: "",
-      exp: "",
-      mana: "",
-      rank: "",
-      branch: "",
-      skills: "",
-      artifact: "",
+  const parseSkillsString = (skillsStr) => {
+    if (!skillsStr) return [];
+    return skillsStr.split(",").map((token) => {
+      const trimmed = token.trim();
+      const match = trimmed.match(/^(.*?)(?:\s*\+\s*(\d+))?$/);
+      const name = match && match[1] ? match[1].trim() : trimmed;
+      const skill_exp = match && match[2] ? Number(match[2]) : undefined;
+      return skill_exp != null ? { name, skill_exp } : { name };
     });
+  };
+
+  const addMission = async () => {
+    if (!form.name || !form.description) return;
+
+    const missionPayload = {
+      title: form.name,
+      description: form.description,
+      expirience: Number(form.exp) || 0,
+      energy: Number(form.mana) || 0,
+      needRank: form.rank,
+      hasArtefactReward: Boolean(form.artifact),
+      artefactName: form.artifact || "",
+      skills: parseSkillsString(form.skills),
+      isOnline: true,
+    };
+
+    try {
+      const created = await missionsService.createMission(missionPayload);
+      const uiItem = {
+        id: created.id,
+        name: created.title,
+        description: created.description,
+        exp: created.expirience,
+        mana: created.energy,
+        rank: created.needRank,
+        branch: form.branch,
+        skills: form.skills,
+        artifact: created.artefactName,
+      };
+      setMissions([...missions, uiItem]);
+      setForm({
+        name: "",
+        description: "",
+        exp: "",
+        mana: "",
+        rank: "",
+        branch: "",
+        skills: "",
+        artifact: "",
+      });
+    } catch (e) {
+      // no-op в мок-режиме
+    }
   };
 
   return (
