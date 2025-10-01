@@ -65,19 +65,6 @@ export default function MissionPage() {
             needRank = {mission.needRank}
             />
             ))}
-
-            <li className="missionPage-card">
-              <h3>💼 Бизнес-симуляции</h3>
-              <p>Примите участие в онлайн-бизнес-симуляции и продемонстрируйте навыки.</p>
-              <div className="missionPage-info">
-                <span>🎖️ 500 XP</span>
-                <span>🔮 120 маны</span>
-                <span>⭐ Доступно: Кандидат</span>
-                <span>📈 Лидерство +20, Аналитика +15</span>
-              </div>
-              <div className="missionPage-reward">🎁 Артефакт: Симулятор успеха</div>
-              <button className="missionPage-btn">Выполнить</button>
-            </li>
           </ul>
         </div>
 
