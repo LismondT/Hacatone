@@ -21,14 +21,9 @@ function Layout() {
 
   return (
     <div className="App">
-      {!shouldHideLeftBar && <LeftBar />}
-<<<<<<< HEAD
-      {/* <HrMenu/> */}
+      {/* {!shouldHideLeftBar && <LeftBar />} */}
+      <HrMenu/>
       <Routes>
-=======
-      
-			<Routes>
->>>>>>> ca1b87f7687c30215211eae2abfcb3c695cd6d39
         <Route
           path="/login"
           element={
@@ -37,7 +32,7 @@ function Layout() {
             </ProtectedRoute>
           }
         />
-				<Route
+        <Route
           path="/"
           element={
             <ProtectedRoute>
@@ -61,51 +56,12 @@ function Layout() {
             </ProtectedRoute>
           }
         />
- 				<Route 
-          path="/artefacts" 
-          element={
-            <ProtectedRoute>
-              <ArtefactsPage />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/missionsList" 
-          element={
-            <ProtectedRoute>
-              <MissionsListPage />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/missionsList/:id" 
-          element={
-            <ProtectedRoute>
-              <MissionPage />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/onboarding" 
-          element={
-            <ProtectedRoute>
-              <OnboardingPage />
-            </ProtectedRoute>
-          } 
-        />
-        {/* HR-only routes */}
-        <Route 
-          path="/hr/create-mission" 
-          element={
-            <ProtectedRoute hrOnly={true}>
-              <CreateMission />
-            </ProtectedRoute>
-          } 
-        />
+        <Route path="/artefacts" element={<ArtefactsPage />} />
+        <Route path="/missionsList" element={<MissionsListPage />} />
+        <Route path="/missionsList/:id" element={<MissionPage />} />
+        <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route path="/hr/create-mission" element={<CreateMission />} />
       </Routes>
-			
-
-
     </div>
   );
 }
