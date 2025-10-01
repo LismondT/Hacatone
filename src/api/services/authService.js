@@ -1,6 +1,5 @@
 import { CURRENT_MODE, API_MODE, AUTH_TOKEN_KEY, USER_DATA_KEY, API_BASE_URL } from '../config';
 
-// Реальный сервис для работы с бэкендом
 const realAuthService = {
   login: async () => {
     try {
@@ -9,6 +8,7 @@ const realAuthService = {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
       });
 
       if (!response.ok) {
@@ -24,7 +24,8 @@ const realAuthService = {
       const userResponse = await fetch(`${API_BASE_URL}/auth/profile`, {
         headers: {
           'Authorization': `Bearer ${data.accessToken}`
-        }
+        },
+        credentials: 'include',
       });
 
       if (userResponse.ok) {
@@ -74,7 +75,8 @@ const realAuthService = {
       const response = await fetch(`${API_BASE_URL}/auth/profile`, {
         headers: {
           'Authorization': `Bearer ${token}`
-        }
+        },
+        credentials: 'include',
       });
 
       if (response.ok) {
@@ -104,7 +106,8 @@ const realAuthService = {
     const response = await fetch(`${API_BASE_URL}/auth/profile`, {
       headers: {
         'Authorization': `Bearer ${token}`
-      }
+      },
+      credentials: 'include',
     });
 
     if (!response.ok) {
@@ -112,48 +115,75 @@ const realAuthService = {
     }
 
     return await response.json();
-  }
+  },
+
+	isHr: async () => {
+		const userData = localStorage.getItem(USER_DATA_KEY);
+		return JSON.parse(userData).isHr;
+	}
 };
+
+const mockUsers = [
+	{
+		id: 1,
+		firstName: "Иван",
+		lastName: "Иванов",
+		surname: "Иванович",
+		email: "user@example.com",
+		password: "user",
+		image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
+		exp: 1500,
+		energy: 85,
+		rankName: "Специалист",
+		phone: "+7 (999) 123-45-67",
+		direction: "Frontend разработка",
+		isHr: false
+	},
+	{
+		id: 2,
+		firstName: "Петр",
+		lastName: "Петров",
+		surname: "Петрович",
+		email: "admin@example.com",
+		password: "admin",
+		image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
+		exp: 0,
+		energy: 0,
+		rankName: "HR",
+		phone: "+7 (999) 123-45-67",
+		direction: "HR",
+		isHr: true
+	}
+];
 
 // Моковый сервис (оставляем для разработки)
 const mockAuthService = {
-  login: async () => {
-    await new Promise(resolve => setTimeout(resolve, 500));
+  login: async (email, password) => {
+		const user = mockUsers.find(u => u.email === email && u.password === password);
 
-    const mockUser = {
-      id: 1,
-      firstName: "Иван",
-      lastName: "Иванов",
-      surname: "Иванович",
-      email: "ivan@example.com",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
-      exp: 1500,
-      energy: 85,
-      rankName: "Специалист",
-      phone: "+7 (999) 123-45-67",
-      direction: "Frontend разработка"
-    };
+		if (!user) {
+      throw new Error('Неверный email или пароль');
+    }
 
     const mockToken = `mock_token_${Date.now()}`;
     
+		const { password: _, ...userWithoutPassword } = user;
+
     localStorage.setItem(AUTH_TOKEN_KEY, mockToken);
-    localStorage.setItem(USER_DATA_KEY, JSON.stringify(mockUser));
+    localStorage.setItem(USER_DATA_KEY, JSON.stringify(userWithoutPassword));
 
     return {
       token: mockToken,
-      user: mockUser
+      user: userWithoutPassword
     };
   },
 
   logout: async () => {
-    await new Promise(resolve => setTimeout(resolve, 300));
     localStorage.removeItem(AUTH_TOKEN_KEY);
     localStorage.removeItem(USER_DATA_KEY);
   },
 
-  checkAuth: async () => {
-    await new Promise(resolve => setTimeout(resolve, 200));
-    
+  checkAuth: async () => {    
     const token = localStorage.getItem(AUTH_TOKEN_KEY);
     const userData = localStorage.getItem(USER_DATA_KEY);
     
@@ -165,10 +195,14 @@ const mockAuthService = {
   },
 
   getProfile: async () => {
-    await new Promise(resolve => setTimeout(resolve, 300));
     const userData = localStorage.getItem(USER_DATA_KEY);
     return userData ? JSON.parse(userData) : null;
-  }
+  },
+
+	isHr: async () => {
+		const userData = localStorage.getItem(USER_DATA_KEY);
+		return JSON.parse(userData).isHr;
+	}
 };
 
 export const authService = CURRENT_MODE === API_MODE.MOCK 

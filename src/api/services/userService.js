@@ -43,7 +43,8 @@ const realUserService = {
     const response = await fetch(`${API_BASE_URL}/auth/profile`, {
       headers: {
         'Authorization': `Bearer ${token}`
-      }
+      },
+      credentials: 'include',
     });
 
     if (!response.ok) {

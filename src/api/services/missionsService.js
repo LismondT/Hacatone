@@ -72,10 +72,10 @@ const mockMissionService = {
     return mockMissions;
   },
 
-  getMissionById: async (id) => {
+	getMissionById: async (id) => {
     await new Promise(resolve => setTimeout(resolve, 300));
-    
-    const mission = mockMissions.find(a => a.id === parseInt(id));
+		
+		const mission = mockMissions.find(a => a.id === String(id));
     if (!mission) {
       throw new Error('Миссия не найдена');
     }
@@ -108,10 +108,10 @@ const mockMissionService = {
     return newMission;
   },
 
-  updateMission: async (id, missionData) => {
+	updateMission: async (id, missionData) => {
     await new Promise(resolve => setTimeout(resolve, 600));
-    
-    const missionIndex = mockMissions.findIndex(a => a.id === parseInt(id));
+		
+		const missionIndex = mockMissions.findIndex(a => a.id === String(id));
     if (missionIndex === -1) {
       throw new Error('Миссия не найдена');
     }
@@ -126,10 +126,10 @@ const mockMissionService = {
     return updatedMission;
   },
 
-  deleteMission: async (id) => {
+	deleteMission: async (id) => {
     await new Promise(resolve => setTimeout(resolve, 500));
-    
-    const missionIndex = mockMissions.findIndex(a => a.id === parseInt(id));
+		
+		const missionIndex = mockMissions.findIndex(a => a.id === String(id));
     if (missionIndex === -1) {
       throw new Error('Миссия не найдена');
     }

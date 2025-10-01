@@ -35,11 +35,11 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const login = async () => {
+  const login = async (email, password) => {
     try {
       setLoading(true);
       setError(null);
-      const result = await authService.login();
+      const result = await authService.login(email, password);
       setUser(result.user);
       return result;
     } catch (err) {

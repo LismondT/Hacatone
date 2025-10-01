@@ -1,27 +1,28 @@
+// components/protectedRoute/ProtectedRoute.jsx
 import { useAuth } from '../context/AuthContext';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
-const ProtectedRoute = ({ children, requireAuth = true }) => {
-  const { isAuthenticated, loading } = useAuth();
-  const location = useLocation();
+const ProtectedRoute = ({ children, requireAuth = true, hrOnly = false }) => {
+  const { user, loading, isAuthenticated } = useAuth();
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="text-lg">Проверка авторизации...</div>
-      </div>
-    );
+    return <div>Загрузка...</div>;
   }
 
   // Если требуется авторизация, но пользователь не авторизован
   if (requireAuth && !isAuthenticated) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate to="/login" replace />;
   }
 
-  // // Если пользователь авторизован, но пытается зайти на login/register
-  // if (!requireAuth && isAuthenticated) {
-  //   return <Navigate to="/" replace />;
-  // }
+  // Если не требуется авторизация, но пользователь авторизован
+  if (!requireAuth && isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+
+  // Если требуется HR доступ, но пользователь не HR
+  if (hrOnly && (!user || !user.isHr)) {
+    return <Navigate to="/" replace />;
+  }
 
   return children;
 };
