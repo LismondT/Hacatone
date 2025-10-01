@@ -52,12 +52,12 @@ function MissionCard({
         </div>
       )}
 
-			{isHr && (
+			{!isHr && (
 					<Link to={`/missionsList/${id}`} className="mission-link">
 						<button className="mission-btn">Перейти к выполнению</button>
 					</Link>
 			)}
-			{!isHr && (
+			{isHr && (
 					<Link to={`/`} className="mission-link">
 						<button className="mission-btn">Редактировать</button>
 					</Link>
