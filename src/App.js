@@ -4,7 +4,6 @@ import Cabinet from './pages/user/cabinet/cabinet.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import LeftBar from './components/leftBar/leftBar.jsx';
-import HrMenu from './components/HRmenu/hrMenu.jsx';
 import ShopPage from './pages/user/shop/shop.jsx';
 import ArtefactsPage from './pages/user/artefact/artefact.jsx';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute.jsx';
@@ -75,7 +74,7 @@ function Layout() {
             <ProtectedRoute>
               <MissionsListPage />
             </ProtectedRoute>
-          } 
+          }
         />
         <Route 
           path="/missionsList/:id" 
