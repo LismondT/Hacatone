@@ -118,6 +118,8 @@ const realAuthService = {
   },
 
 	isHr: async () => {
+		const userData = localStorage.getItem(USER_DATA_KEY);
+		return JSON.parse(userData).isHr;
 	}
 };
 

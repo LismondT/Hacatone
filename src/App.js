@@ -4,7 +4,6 @@ import Cabinet from './pages/user/cabinet/cabinet.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import LeftBar from './components/leftBar/leftBar.jsx';
-import HrMenu from './components/HRmenu/hrMenu.jsx';
 import ShopPage from './pages/user/shop/shop.jsx';
 import ArtefactsPage from './pages/user/artefact/artefact.jsx';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute.jsx';
@@ -56,11 +55,47 @@ function Layout() {
             </ProtectedRoute>
           }
         />
-        <Route path="/artefacts" element={<ArtefactsPage />} />
-        <Route path="/missionsList" element={<MissionsListPage />} />
-        <Route path="/missionsList/:id" element={<MissionPage />} />
-        <Route path="/onboarding" element={<OnboardingPage />} />
-        <Route path="/hr/create-mission" element={<CreateMission />} />
+ 				<Route 
+          path="/artefacts" 
+          element={
+            <ProtectedRoute>
+              <ArtefactsPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/missionsList" 
+          element={
+            <ProtectedRoute>
+              <MissionsListPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/missionsList/:id" 
+          element={
+            <ProtectedRoute>
+              <MissionPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/onboarding" 
+          element={
+            <ProtectedRoute>
+              <OnboardingPage />
+            </ProtectedRoute>
+          } 
+        />
+        {/* HR-only routes */}
+        <Route 
+          path="/hr/create-mission" 
+          element={
+            <ProtectedRoute hrOnly={true}>
+              <CreateMission />
+            </ProtectedRoute>
+          } 
+        />
       </Routes>
     </div>
   );
