@@ -1,9 +1,8 @@
-
 const mockMissions = [
 	{
-	id: "1",
-	title: "Загрузка резюме",
-	description: "Загрузите своё резюме для начала работы с Alabuga на сайт",
+	id: 1,
+	title: "Пост с фото",
+	description: "В ветке блогерства есть несколько заданий, первое из них заключается в посте с фото для рекламы Alabuga!",
 	expirience: 50,
 	energy: 20,
 	hasArtefactReward: false,
@@ -19,7 +18,52 @@ const mockMissions = [
 		},
 	],
 	needRank: "Разведчик",
-	isOnline: true
+	isOnline: true,
+  branchId: 1
+	},
+  {
+	id: 2,
+	title: "Сторис с хэштегом",
+	description: "Сделайте в соц-сетях сторис с хэштегом алабуги!",
+	expirience: 50,
+	energy: 20,
+	hasArtefactReward: false,
+	artefactName: "",
+	skills: [
+		{
+		name: "Аналитика",
+		skill_exp: 15
+		},
+		{
+		name: "Вера в дело",
+		skill_exp: 10
+		},
+	],
+	needRank: "Разведчик",
+	isOnline: true,
+  branchId: 1
+	},
+  {
+	id: 3,
+	title: "Съёмка видеоблога про компанию",
+	description: "Сделайте великолепный видеоблог про лучший университет России!",
+	expirience: 50,
+	energy: 20,
+	hasArtefactReward: false,
+	artefactName: "",
+	skills: [
+		{
+		name: "Аналитика",
+		skill_exp: 15
+		},
+		{
+		name: "Вера в дело",
+		skill_exp: 10
+		},
+	],
+	needRank: "Разведчик",
+	isOnline: true,
+  branchId: 1
 	}
 ];
 
@@ -33,37 +77,35 @@ const mockMissionService = {
     
     const mission = mockMissions.find(a => a.id === parseInt(id));
     if (!mission) {
-      throw new Error('Артефакт не найден');
+      throw new Error('Миссия не найдена');
     }
     
     return mission;
   },
 
-  // getArtefactsByRarity: async (rare_name) => {
-  //   await new Promise(resolve => setTimeout(resolve, 400));
+  getMissionsByBranch: async (branchId) => {
+    await new Promise(resolve => setTimeout(resolve, 400));
     
-  //   const rarityArtefacts = mockMissions.filter(mission => 
-  //     mission.rare.name === rare_name
-  //   );
+    let branchMissions = mockMissions.filter(mission => mission.branchId === branchId);
     
-  //   return {
-  //     artefacts: rarityArtefacts,
-  //     total: rarityArtefacts.length,
-  //     rare_name
-  //   };
-  // },
+    return {
+      missions: branchMissions,
+      total: branchMissions.length,
+      branchId
+    };
+  },
 
   createMission: async (missionData) => {
     await new Promise(resolve => setTimeout(resolve, 800));
     
-    const newArtefact = {
+    const newMission = {
       id: Math.max(...mockMissions.map(a => a.id)) + 1,
       ...missionData
     };
     
-    console.log('Создан новый артефакт:', newArtefact);
+    console.log('Создан новый артефакт:', newMission);
     
-    return newArtefact;
+    return newMission;
   },
 
   updateMission: async (id, missionData) => {

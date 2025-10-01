@@ -1,7 +1,43 @@
 import "./MissionPage.css";
+import { missionsService } from "../../../api/services/missionsService";
+import { branchService } from "../../../api/services/branchService";
+import { useState, useEffect } from "react";
+import MissionCard from "../../../components/missionCard/missionCard";
+
 // import { useParams, Link } from "react-router-dom";
 
 export default function MissionPage() {
+    const [missions, setMissions] = useState([]);
+    const [branch, setBranch] = useState([]);
+
+  
+  useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const allMissions = await missionsService.getMissions();
+      
+      if (allMissions.length === 0) return;
+      
+      const branchId = allMissions[0].branchId;
+      
+      // Параллельная загрузка данных
+      const [missionsData, branchData] = await Promise.all([
+        missionsService.getMissionsByBranch(branchId),
+        branchService.getBranchById(branchId)
+      ]);
+      
+      setMissions(missionsData.missions);
+      setBranch(branchData);
+      
+    } catch (error) {
+      console.error('Ошибка загрузки данных:', error);
+    }
+  };
+
+  fetchData();
+  }, []); 
+
+
   return (
     <div className="missionPage-page">
       <div className="missionPage-container">
@@ -13,31 +49,22 @@ export default function MissionPage() {
 
         {/* Ветка миссий */}
         <div className="missionPage-branch">
-          <h2>📖 Ветка: Рекрутинг</h2>
+          <h2>📖 Ветка: {branch.branchName}</h2>
           <ul>
-            <li className="missionPage-card">
-              <h3>📑 Сбор документов</h3>
-              <p>Необходимо собрать все требуемые документы для начала отбора.</p>
-              <div className="missionPage-info">
-                <span>🎖️ 200 XP</span>
-                <span>🔮 50 маны</span>
-                <span>⭐ Доступно: Новичок</span>
-                <span>📈 Компетенции: Внимательность +10</span>
-              </div>
-              <button className="missionPage-btn">Выполнить</button>
-            </li>
-
-            <li className="missionPage-card">
-              <h3>📝 Заполнение резюме</h3>
-              <p>Создайте и загрузите резюме для участия в конкурсе.</p>
-              <div className="missionPage-info">
-                <span>🎖️ 300 XP</span>
-                <span>🔮 70 маны</span>
-                <span>⭐ Доступно: Новичок</span>
-                <span>📈 Самопрезентация +15</span>
-              </div>
-              <button className="missionPage-btn">Выполнить</button>
-            </li>
+            {missions.map((mission) => (
+            <MissionCard
+            id = {mission.id}
+            title = {mission.title}
+            desc = {mission.description}
+            expirience = {mission.expirience}
+            energy = {mission.energy}
+            hasArtefactReward = {mission.hasArtefactReward}
+            artefactName = {mission.artefactName}
+            skills = {mission.skills}
+            isOnline = {mission.isOnline}
+            needRank = {mission.needRank}
+            />
+            ))}
 
             <li className="missionPage-card">
               <h3>💼 Бизнес-симуляции</h3>
