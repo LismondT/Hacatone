@@ -11,7 +11,8 @@ function MissionCard({
   artefactName,
   skills,
   isOnline = true,
-  needRank
+  needRank,
+	isHr = false
 }) {
   return (
     <div className="mission-card">
@@ -51,9 +52,17 @@ function MissionCard({
         </div>
       )}
 
-      <Link to={`/missionsList/${id}`} className="mission-link">
-        <button className="mission-btn">Перейти к выполнению</button>
-      </Link>
+			{isHr && (
+					<Link to={`/missionsList/${id}`} className="mission-link">
+						<button className="mission-btn">Перейти к выполнению</button>
+					</Link>
+			)}
+			{!isHr && (
+					<Link to={`/`} className="mission-link">
+						<button className="mission-btn">Редактировать</button>
+					</Link>
+			)}
+
     </div>
   );
 }
