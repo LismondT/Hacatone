@@ -111,7 +111,10 @@ const realAuthService = {
     }
 
     return await response.json();
-  }
+  },
+
+	isHr: async () => {
+	}
 };
 
 const mockUsers = [
@@ -192,7 +195,7 @@ const mockAuthService = {
 
 	isHr: async () => {
 		const userData = localStorage.getItem(USER_DATA_KEY);
-		return userData.isHr;
+		return JSON.parse(userData).isHr;
 	}
 };
 
