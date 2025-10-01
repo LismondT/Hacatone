@@ -14,6 +14,7 @@ export default function MissionsListPage() {
         missionsService.getMissions()
             .then(missionsData => {
                 setMissions(missionsData);
+                console.log(missionsData);
             });
         authService.isHr()
 					.then(data => {

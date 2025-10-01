@@ -1,3 +1,43 @@
+import { CURRENT_MODE, API_MODE, API_BASE_URL, AUTH_TOKEN_KEY } from "../config";
+
+const realMissionService = {
+  getMissions: async () => {
+    const token = localStorage.getItem(AUTH_TOKEN_KEY);
+    const response = await fetch(`${API_BASE_URL}/getMissions`, {
+			method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch missions');
+    }
+		
+    const data = await response.json();
+
+		if (Array.isArray(data)) {
+      return data;
+    } else if (data.missions && Array.isArray(data.missions)) {
+      return data.missions;
+    } else {
+      console.error('Unexpected response format:', data);
+      return [];
+    }
+  },
+
+	getMissionsByBranch: async (branchId) => {
+	let missionsList = await realMissionService.getMissions();
+	let branchMissions = missionsList.filter(mission => mission.branchId === branchId);
+	
+	return {
+		missions: branchMissions,
+		total: branchMissions.length,
+		branchId
+	};
+  }
+};
+
 const mockMissions = [
 	{
 	id: 1,
@@ -140,4 +180,6 @@ const mockMissionService = {
   }
 };
 
-export const missionsService = mockMissionService;
+export const missionsService = CURRENT_MODE === API_MODE.MOCK 
+	? mockMissionService 
+	: realMissionService;
