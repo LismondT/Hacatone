@@ -64,28 +64,6 @@ const mockMissions = [
 	needRank: "Разведчик",
 	isOnline: true,
   branchId: 1
-	},
-	{
-	id: 4,
-	title: "Съёмка видеоблога про компанию",
-	description: "Сделайте великолепный видеоблог про лучший университет России!",
-	expirience: 50,
-	energy: 20,
-	hasArtefactReward: false,
-	artefactName: "",
-	skills: [
-		{
-		name: "Аналитика",
-		skill_exp: 15
-		},
-		{
-		name: "Вера в дело",
-		skill_exp: 10
-		},
-	],
-	needRank: "Разведчик",
-	isOnline: true,
-  branchId: 2	
 	}
 ];
 
