@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# Модуль геймификации Алабуги
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Обзор
 
-## Available Scripts
+Этот проект разрабатывает мотивационный модуль геймификации для кадровой системы ОЭЗ «Алабуга». Платформа превращает рутинные задачи для кандидатов и сотрудников в увлекательное космическое приключение. Пользователи начинают как кандидаты-космические пилоты и прогрессируют до командиров космических подразделений, выполняя миссии, зарабатывая очки опыта (XP), энергию, ранги, артефакты и компетенции. Цель — соединить разрозненные задачи в coherentный путь, способствуя ощущению прогресса и вклада в долгосрочные цели, в соответствии с корпоративной культурой Алабуги по решению сверхзадач и стремлению к звездам (включая планы по освоению космоса в ближайшие 25 лет).
 
-In the project directory, you can run:
+Приложение имеет темный космический интерфейс с элементами, такими как профили, списки миссий, магазин наград, инвентарь артефактов и карты онбординга. Оно ориентировано на более 26 000 сотрудников и тысячи кандидатов ежемесячно, делая HR-процессы веселыми и мотивирующими.
 
-### `npm start`
+## Функции
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Профиль пользователя**: Отображает ранг, прогресс XP (например, 1500/2000 XP), энергию (например, 85/100), и компетенции (например, Война, Разговор, Инженерия, Начальная).
+- **Система миссий**: Космические тематические задачи с наградами в XP (+50 XP) и энергии (+20). Примеры включают публикацию фото из биореакторов или строительство сюжетов в социальных сетях с анализом инопланетян.
+- **Магазин**: Обмен энергии на реальные награды (например, iPhone 15 Pro за 99990 энергии) или внутриигровые бонусы.
+- **Карта галактики онбординга**: Направляет пользователей через разделы, такие как Профиль, Магазин, Артефакты, с описаниями преимуществ (например, развитие ранга и уровня, XP и энергии, навыки и комитеты, боковые квесты и рецепты).
+- **Инвентарь артефактов**: Сбор уникальных наград за выполненные миссии с космическими визуалами, такими как нейтронные звезды или гелиосферы.
+- **Отслеживание компетенций**: Полосы прогресса навыков для областей, таких как аналитика, вероятность и многое другое.
+- **Тематическая терминология**: Пользователи — «пилоты», HR — создатели задач, организаторы проводят события и т.д.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Технологический стек
 
-### `npm test`
+- **Frontend**: React с темной космической темой.
+- **Backend**: Python.
+- **База данных**: Для хранения прогресса пользователей, миссий и наград используется PostgreSQL и SQLite.
+- **Другое**: Элементы геймификации, построенные с полосами прогресса, значками и системами наград. Интеграция с HR-системой Алабуги для синхронизации задач и данных пользователей.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Этот проект следует классической клиент-серверной модели и состоит из двух основных частей: фронтенд-клиента (веб-сайт) и бэкенд-сервера (API). Взаимодействие между ними происходит по HTTP/HTTPS протоколу с использованием REST API.
 
-### `npm run build`
+Фронтенд (Frontend)
+Фронтенд-приложение представляет собой Single Page Application (SPA).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Структура основных модулей:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+/src/components/: Переиспользуемые UI-компоненты (кнопки, поля ввода, модальные окна).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+/src/pages/: Компоненты, представляющие собой целые страницы приложения (Главная, Профиль, Корзина).
 
-### `npm run eject`
+/src/services/api.js: Централизованный модуль для всех HTTP-запросов к бэкенду. Инкапсулирует логику взаимодействия с API.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Бэкенд (Backend)
+Бэкенд-сервер — это RESTful API.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Структура основных модулей:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+/backend/: Обработчики маршрутов (Routes). Принимают HTTP-запросы, делегируют логику сервисам и возвращают ответы клиенту.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+/db/:  Описывает структуры данных и модели для взаимодействия с базой данных.
 
-## Learn More
+/Database/Alabuga.db/: Содержит скрипты создания базы данных
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Взаимодействие компонентов
+Пользователь совершает действие на сайте (например, нажимает кнопку "Войти").
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Фронтенд (модуль services/api.js) отправляет HTTP-запрос (например, POST /api/auth) на бэкенд, передавая логин и пароль.
 
-### Code Splitting
+Бэкенд принимает запрос:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Backend маршрута /api/auth принимает запрос и вызывает соответствующую бизнес-логику.
 
-### Analyzing the Bundle Size
+База данных возвращает результат проверки сервису.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Бэкенд формирует ответ (успех с JWT-токеном или ошибка) и отправляет его фронтенду.
 
-### Making a Progressive Web App
+Фронтенд получает ответ. В случае успеха, store сохраняет токен, а router перенаправляет пользователя в личный кабинет.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Установка
 
-### Advanced Configuration
+Проект состоит из frontend и backend частей. Установите их отдельно.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Backend (Python)
+1. Клонируйте репозиторий:
+   
+   git clone https://github.com/your-repo/alabuga-gamification-module.git
+   cd alabuga-gamification-module/backend
 
-### Deployment
+2. Создайте виртуальное окружение и установите зависимости:
+   
+   python -m venv venv
+   source venv/bin/activate  # Для Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   pip install aiohttp pyjwt     
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3. Запустите сервер:
+   
+   uvicorn main:app --reload
+   
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Frontend (React)
+1. Перейдите в директорию frontend:
+   
+   cd ../frontend
+   
+
+2. Установите зависимости:
+   
+   npm install
+   
+
+3. Запустите приложение:
+   
+   npm start
+
+## Использование
+ Для пользователей: Войдите как кандидат или сотрудник. Выполняйте миссии, чтобы заработать XP и энергию. Отслеживайте прогресс в профиле, покупайте награды в магазине и собирайте артефакты.
+- Для HR/Организаторов: Создавайте и назначайте миссии через админ-панель (не показана на скриншотах).
+- Пример потока:
+  1. Онбординг через карту галактики.
+  2. Выполните миссию, такую как «Опубликуйте фото» за +50 XP и +20 энергии.
+  3. Используйте энергию в магазине для покупки предметов.
+  4. Повышайте ранги, чтобы разблокировать новые задачи.
+
+## Вклад
+
+Вклады приветствуются! Пожалуйста, форкните репозиторий и отправляйте pull request. Фокус на улучшении элементов геймификации, UI/UX или интеграций.
+
+## Лицензия
+
+Лицензия MIT (или укажите в зависимости от нужд проекта).
+
+## Контакты
+
+По вопросам обращайтесь к капитану команды или HR в Алабуге.
